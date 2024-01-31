@@ -18,7 +18,7 @@ class AsignacionPreviaController extends Controller
 {
     public function index()
     {
-        $historials = Historial::with(['asignacionAula', 'asignacionAula.asignacionPrevia', 'asignacionAula.aula', 'asignacionAula.dias'])->get();
+        $historials = Historial::all();
         $dias = Dia::all();
         $materias = Materia::all();
         $docentes = Docente::all();

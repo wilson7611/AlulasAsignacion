@@ -14,4 +14,5 @@ class Dia extends Model
     {
         return $this->belongsToMany(AsignacionAula::class);
     }
+    
 }

@@ -65,3 +65,8 @@ Route::post('/confirmar-asignaciones', [AsignacionAulaController::class, 'confir
 
     Route::get('/vaciar/asignacionPrevia', [AsignacionAulaController::class, 'vaciarAsignacionPrevia'])->name('vaciar.asignacionPrevia');
     Route::get('/vaciar/asignacionAula', [AsignacionAulaController::class, 'vaciarAsignacionAula'])->name('vaciar.asignacionAula');
+    Route::get('/vaciar-asignacion-dia-aula', [AsignacionAulaController::class, 'vaciarAsignacioDiaAula'])
+    ->name('vaciar.asignacion.dia.aula');
+    Route::get('/eliminar-tabla', [AsignacionAulaController::class, 'eliminarTabla'])->name('eliminar.tabla');
+    Route::get('/vaciar-asignacion-aula-dia', [AsignacionAulaController::class, 'vaciarAsignacionAulaDia'])
+    ->name('vaciar.asignacionAulaDia');

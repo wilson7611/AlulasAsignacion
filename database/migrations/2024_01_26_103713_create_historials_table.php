@@ -13,11 +13,18 @@ return new class extends Migration
     {
         Schema::create('historials', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('asignacion_aulas_id');
-            $table->foreign('asignacion_aulas_id')->references('id')->on('asignacion_aulas');
-            $table->unsignedBigInteger('user_id');
+            $table->string('materia')->nullable();
+            $table->string('docente')->nullable();
+            $table->string('turno')->nullable();
+            $table->string('aula')->nullable();
+            $table->integer('capacidad')->nullable();
+            $table->string('dias')->nullable();
+            $table->integer('cantidad_dias')->nullable();
+            $table->integer('cantidad_estudiantes')->nullable();
+            $table->boolean('confirmado');
+            $table->unsignedBigInteger('user_id'); // Ajusta según la relación real con la tabla de usuarios
             $table->foreign('user_id')->references('id')->on('users');
-            $table->date('fecha');
+            $table->timestamp('fecha');
             $table->timestamps();
         });
     }

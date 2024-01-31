@@ -9,17 +9,20 @@ class Historial extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'asignacion_aulas_id',
+        'materia',
+        'docente',
+        'turno',
+        'aula',
+        'capacidad',
+        'dias',
+        'cantidad_dias',
+        'cantidad_estudiantes',
+        'confirmado',
         'user_id',
         'fecha',
-        // Otros campos...
     ];
 
-    public function asignacionAula()
-    {
-        return $this->belongsTo(AsignacionAula::class);
-    }
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

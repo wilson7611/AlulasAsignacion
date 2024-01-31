@@ -284,6 +284,12 @@
                                                     class="btn btn-danger">Vaciar asignacionPrevia</a>
                                                 <a href="{{ route('vaciar.asignacionAula') }}"
                                                     class="btn btn-danger">Vaciar asignacionAula</a>
+                                                <!-- resources/views/tu_vista.blade.php -->
+
+                                                <a href="{{ route('vaciar.asignacionAulaDia') }}" class="btn btn-danger">Vaciar asignacion_aula_dia</a>
+
+
+
 
                                             </div>
                                         </form>
@@ -517,7 +523,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                
+
 
 
                             </div>
