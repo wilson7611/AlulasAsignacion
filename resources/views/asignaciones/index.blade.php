@@ -280,14 +280,14 @@
                                             <div class="mb-3 mt-2">
                                                 <input type="submit" class="btn btn-success" value="Registrar">
                                                 <!-- Agrega estos botones donde desees en tu vista -->
-                                                <a href="{{ route('vaciar.asignacionPrevia') }}"
+                                                {{-- <a href="{{ route('vaciar.asignacionPrevia') }}"
                                                     class="btn btn-danger">Vaciar asignacionPrevia</a>
                                                 <a href="{{ route('vaciar.asignacionAula') }}"
                                                     class="btn btn-danger">Vaciar asignacionAula</a>
                                                 <!-- resources/views/tu_vista.blade.php -->
 
                                                 <a href="{{ route('vaciar.asignacionAulaDia') }}" class="btn btn-danger">Vaciar asignacion_aula_dia</a>
-
+ --}}
 
 
 
