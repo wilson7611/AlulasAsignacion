@@ -18,7 +18,7 @@
         </div><!--end col-->
         
         <div class="col-xxl-12">
-            <select name="carrera_id" id="" class="form-select"> 
+            <select name="carrera_id" id="" class="form-select" required> 
                 <option value="">Elige una carrera</option>
                 @foreach ($carreras as $carrera)
                 <option value="{{$carrera->id}}">{{ $carrera->nombre }}</option>    

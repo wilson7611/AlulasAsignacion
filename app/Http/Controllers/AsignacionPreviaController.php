@@ -8,6 +8,7 @@ use App\Models\Materia;
 use App\Models\AsignacionPrevia;
 use App\Models\Aula;
 use App\Models\Dia;
+use App\Models\Historial;
 use App\Models\Turno;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Exists;
@@ -17,13 +18,14 @@ class AsignacionPreviaController extends Controller
 {
     public function index()
     {
+        $historials = Historial::with(['asignacionAula', 'asignacionAula.asignacionPrevia', 'asignacionAula.aula', 'asignacionAula.dias'])->get();
         $dias = Dia::all();
         $materias = Materia::all();
         $docentes = Docente::all();
         $turnos = Turno::all();
         $asignaciones = AsignacionPrevia::all();
         $asignacionAulas = AsignacionAula::all();
-        return view('asignaciones.index', compact('materias', 'docentes', 'turnos', 'asignaciones', 'asignacionAulas', 'dias'));
+        return view('asignaciones.index', compact('materias', 'docentes', 'turnos', 'asignaciones', 'asignacionAulas', 'dias', 'historials'));
     }
     public function store(Request $request)
     {

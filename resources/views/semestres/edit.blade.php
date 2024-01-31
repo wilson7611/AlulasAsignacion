@@ -18,7 +18,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="decanatura_id">Carera</label>
-                                <select name="carrera_id" class="form-control">
+                                <select name="carrera_id" class="form-control" required> 
                                     <option value="">{{ $semestre->carreras->nombre }}</option>
                                     @foreach ($carreras as $carrera)
                                         <option value="{{ $carrera->id }}">{{ $carrera->nombre }}</option>

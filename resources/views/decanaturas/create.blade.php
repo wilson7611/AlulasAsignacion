@@ -13,7 +13,7 @@
         <div class="col-xxl-12">
             <div>
                 <label for="firstName" class="form-label">Nombre Decanatura</label>
-                <input type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre">
+                <input type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre" required>
             </div>
         </div><!--end col-->
         

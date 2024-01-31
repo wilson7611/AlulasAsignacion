@@ -17,7 +17,11 @@ class Historial extends Model
 
     public function asignacionAula()
     {
-        return $this->belongsTo(AsignacionAula::class)->onDelete('cascade');;
+        return $this->belongsTo(AsignacionAula::class);
+    }
+    public function users()
+    {
+        return $this->belongsTo(User::class);
     }
 
    

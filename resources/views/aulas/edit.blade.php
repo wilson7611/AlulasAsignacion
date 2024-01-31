@@ -14,11 +14,11 @@
                 @csrf
                 <div class="form-group">
                   <label for="name">Nombre</label>
-                  <input type="text" name="nombre" required class="form-control" value="{{ $aula->nombre }}">
+                  <input required type="text" name="nombre" required class="form-control" value="{{ $aula->nombre }}">
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="number" name="capacidad" required class="form-control" value="{{ $aula->capacidad }}">
+                  <input  type="number" name="capacidad" required class="form-control" value="{{ $aula->capacidad }}">
                 </div>
                <br>
                

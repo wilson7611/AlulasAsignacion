@@ -13,14 +13,14 @@
         <div class="col-xxl-12">
             <div>
                 <label for="firstName" class="form-label">Nombre Aula</label>
-                <input type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre">
+                <input required autofocus type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre">
             </div>
         </div><!--end col-->
         
         <div class="col-xxl-12">
             <div>
                 <label for="emailInput" class="form-label">Capacidad</label>
-                <input type="number" name="capacidad" class="form-control" id="emailInput" placeholder="Introducir Capacidad">
+                <input required  type="number" name="capacidad" class="form-control" id="emailInput" placeholder="Introducir Capacidad">
             </div>
         </div><!--end col-->
       

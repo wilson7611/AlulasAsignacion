@@ -13,14 +13,14 @@
         <div class="col-xxl-12">
             <div>
                 <label for="firstName" class="form-label">Nombre Materia</label>
-                <input type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre">
+                <input type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre" required>
             </div>
         </div><!--end col-->
         
         <div class="col-xxl-12">
             <div>
                 <label for="emailInput" class="form-label">Semestre</label>
-                <select name="semestre_id" id="" class="form-select">
+                <select name="semestre_id" id="" class="form-select" required>
                     <option value="">Elige un Semestre</option>
                     @foreach ($semestres as $semestre)
                         <option value="{{$semestre->id}}">Semestre {{$semestre->numero}}</option>

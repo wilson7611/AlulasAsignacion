@@ -13,7 +13,7 @@
         <div class="col-xxl-12">
             <div>
                 <label for="firstName" class="form-label">Nombre Completo</label>
-                <input type="text" name="name" class="form-control" id="firstName" placeholder="Introducir Nombre">
+                <input type="text" name="name" class="form-control" id="firstName" placeholder="Introducir Nombre" required>
             </div>
         </div><!--end col-->
         {{-- <div class="col-xxl-6">
@@ -42,19 +42,19 @@
         <div class="col-xxl-12">
             <div>
                 <label for="emailInput" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" id="emailInput" placeholder="Introducir email">
+                <input type="email" name="email" class="form-control" id="emailInput" placeholder="Introducir email" required>
             </div>
         </div><!--end col-->
         <div class="col-xxl-12">
             <div>
                 <label for="passwordInput" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="passwordInput" value="" placeholder="Introducir Password">
+                <input type="password" name="password" class="form-control" id="passwordInput" value="" placeholder="Introducir Password" required>
             </div>
         </div><!--end col-->
         <div class="col-xxl-12">
             <div>
                 <label for="passwordInput" class="form-label">Rol</label>
-                <select type="text" name="rol" class="form-select" id="passwordInput" value="">
+                <select type="text" name="rol" class="form-select" id="passwordInput" value="" required>
                     <option value="">Elije un rol</option>
                     @foreach ($roles as $key => $value)
                     <option value="{{ $value }}">{{ $value }}</option>

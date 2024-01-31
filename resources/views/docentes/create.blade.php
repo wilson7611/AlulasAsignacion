@@ -13,14 +13,14 @@
         <div class="col-xxl-12">
             <div>
                 <label for="firstName" class="form-label">Nombre Completo</label>
-                <input type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre">
+                <input type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre" autofocus required>
             </div>
         </div><!--end col-->
         
         <div class="col-xxl-12">
             <div>
                 <label for="emailInput" class="form-label">Email</label>
-                <input type="email" name="correo" class="form-control" id="emailInput" placeholder="Introducir email">
+                <input type="email" name="correo" class="form-control" id="emailInput" placeholder="Introducir email" required>
             </div>
         </div><!--end col-->
       

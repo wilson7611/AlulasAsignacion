@@ -13,12 +13,12 @@
         <div class="col-xxl-12">
             <div>
                 <label for="firstName" class="form-label">Nombre Carrera</label>
-                <input type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre">
+                <input type="text" name="nombre" class="form-control" id="firstName" placeholder="Introducir Nombre" required>
             </div>
         </div><!--end col-->
         
         <div class="col-xxl-12">
-            <select name="decanatura_id" id="" class="form-select"> 
+            <select name="decanatura_id" id="" class="form-select" required> 
                 <option value="">Elige una decanatura</option>
                 @foreach ($decanaturas as $decanatura)
                 <option value="{{$decanatura->id}}">{{ $decanatura->nombre }}</option>    

@@ -280,8 +280,10 @@
                                             <div class="mb-3 mt-2">
                                                 <input type="submit" class="btn btn-success" value="Registrar">
                                                 <!-- Agrega estos botones donde desees en tu vista -->
-<a href="{{ route('vaciar.asignacionPrevia') }}" class="btn btn-danger">Vaciar asignacionPrevia</a>
-<a href="{{ route('vaciar.asignacionAula') }}" class="btn btn-danger">Vaciar asignacionAula</a>
+                                                <a href="{{ route('vaciar.asignacionPrevia') }}"
+                                                    class="btn btn-danger">Vaciar asignacionPrevia</a>
+                                                <a href="{{ route('vaciar.asignacionAula') }}"
+                                                    class="btn btn-danger">Vaciar asignacionAula</a>
 
                                             </div>
                                         </form>
@@ -400,7 +402,7 @@
                                     <h2>Aulas Asignadas</h2>
                                     <form action="{{ route('confirmar.asignaciones') }}" method="post">
                                         @csrf
-                                        
+
                                         <table class="table table-bordered nowrap table-striped align-middle">
                                             <thead>
                                                 <tr>
@@ -420,70 +422,104 @@
                                                 @foreach ($asignacionAulas as $asignacionAula)
                                                     <tr>
                                                         <td>{{ $asignacionAula->id }}</td>
-                                                        <td>{{ optional($asignacionAula->asignacion_previas->materias)->nombre }}</td>
-                                                        <td>{{ optional($asignacionAula->asignacion_previas->docentes)->nombre }}</td>
-                                                        <td>{{ optional($asignacionAula->asignacion_previas->turnos)->nombre }}</td>
+                                                        <td>{{ optional($asignacionAula->asignacion_previas->materias)->nombre }}
+                                                        </td>
+                                                        <td>{{ optional($asignacionAula->asignacion_previas->docentes)->nombre }}
+                                                        </td>
+                                                        <td>{{ optional($asignacionAula->asignacion_previas->turnos)->nombre }}
+                                                        </td>
                                                         <td>{{ optional($asignacionAula->aulas)->nombre }}</td>
                                                         <td>{{ optional($asignacionAula->aulas)->capacidad }}</td>
                                                         <td>
                                                             <!-- Mostrar días seleccionados -->
                                                             @foreach ($dias as $dia)
                                                                 <label for="">{{ $dia->dia }}</label>
-                                                                <input type="checkbox" name="dias_seleccionados[{{ $asignacionAula->id }}][]"
+                                                                <input type="checkbox"
+                                                                    name="dias_seleccionados[{{ $asignacionAula->id }}][]"
                                                                     value="{{ $dia->id }}"
                                                                     {{ in_array($dia->id, $asignacionAula->dias->pluck('id')->toArray()) ? 'checked' : '' }}>
                                                             @endforeach
                                                         </td>
                                                         <td>
                                                             <div>
-                                                                <input class="form-control" type="number" name="cantidad_dias[{{ $asignacionAula->id }}]" value="{{ $asignacionAula->dias->count() }}">
+                                                                <input class="form-control" type="number"
+                                                                    name="cantidad_dias[{{ $asignacionAula->id }}]"
+                                                                    value="{{ $asignacionAula->dias->count() }}">
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div>
-                                                                <input class="form-control" type="number" name="cantidad_estudiantes[{{ $asignacionAula->id }}]" value="{{ $asignacionAula->asignacion_previas->numero_estudiantes }}">
+                                                                <input class="form-control" type="number"
+                                                                    name="cantidad_estudiantes[{{ $asignacionAula->id }}]"
+                                                                    value="{{ $asignacionAula->asignacion_previas->numero_estudiantes }}">
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <label for="">Confirmar</label>
-                                                            <input type="checkbox" name="confirmar[{{ $asignacionAula->id }}]" value="1">
+                                                            <input type="checkbox"
+                                                                name="confirmar[{{ $asignacionAula->id }}]"
+                                                                value="1">
                                                         </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                        
+
                                         <!-- Tu botón de Confirmar aquí -->
                                         <button type="submit" class="btn btn-success">Confirmar</button>
                                     </form>
-                                    
+
                                 </div>
                             </div>
 
                             <div class="tab-pane" id="custom-hover-reviews">
-                                
-                                
-                                    <table class="table table-bordered nowrap table-striped align-middle">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Materia</th>
-                                                <th>Docente</th>
-                                                <th>Turno</th>
-                                                <th>Aula</th>
-                                                <th>Capacidad</th>
-                                                <th>Días</th>
-                                                <th>Cantidad de dias</th>
-                                                <th>Confirmar</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                
+
+                                <table class="table table-bordered nowrap table-striped align-middle">
+                                    <thead>
+                                        <tr>
+                                            <!-- Encabezados de las columnas según la estructura de tus modelos -->
+                                            <th>#</th>
+                                            <th>Materia</th>
+                                            <th>Docente</th>
+                                            <th>Turno</th>
+                                            <th>Aula</th>
+                                            <th>Capacidad</th>
+                                            <th>Días</th>
+                                            <th>Cantidad de días</th>
+                                            <th>Confirmar</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
                                     <tbody>
-                                      
+                                        @foreach ($historials as $historial)
+                                            <tr>
+                                                <td>{{ $historial->id }}</td>
+                                                <!-- Acceder a las propiedades relacionadas -->
+                                                <td>
+                                                    {{ optional(optional(optional($historial->asignacionAula)->asignacionPrevia)->materia)->nombre }}
+                                                </td>
+                                                {{-- <td>{{ optional(optional($historial->asignacionAula)->asignacionPrevia->docente)->nombre }}</td>
+                                                <td>{{ optional(optional($historial->asignacionAula)->asignacionPrevia->turno)->nombre }}</td>
+                                                <td>{{ optional(optional($historial->asignacionAula)->aula)->nombre }}</td>
+                                                <td>{{ optional(optional($historial->asignacionAula)->aula)->capacidad }}</td> --}}
+                                                <!-- Mostrar días -->
+                                                {{-- <td>
+                                                    @foreach (optional($historial->asignacionAula)->dias as $dia)
+                                                        {{ $dia->dia }},
+                                                    @endforeach
+                                                </td> --}}
+                                                <!-- Otras columnas según sea necesario -->
+                                                <td>{{ $historial->cantidad_dias }}</td>
+                                                <td>
+                                                    <!-- Confirmar y otras acciones según sea necesario -->
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
+                                </table>
                                 
-                                    </table>
+
+
                             </div>
                         </div>
                     </div><!-- end card-body -->
