@@ -1,0 +1,80 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Materia;
+use App\Models\Semestre;
+use Illuminate\Http\Request;
+
+class MateriaController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $materias = Materia::all();
+        $semestres = Semestre::all();
+        return view('materias.index', compact('materias', 'semestres')); 
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $materia = Materia::create([
+            'nombre' => $request->nombre,
+            'semestre_id' => $request->semestre_id,
+        ]);
+        return redirect()->route('materias.index')->with('success', 'Materia creado Exitosamente');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($id)
+    {
+        $materia = Materia::findOrFail($id);
+        
+        return view('materias.delete', compact('materia'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
+    {
+        $materia = Materia::findOrFail($id);
+        $semestres = Semestre::all();
+        return view('materias.edit', compact('materia', 'semestres'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $materia = Materia::findOrFail($id);
+        $materia->update($request->all());
+        return redirect()->route('materias.index')->with('success', 'Materia actualizada correctamente');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+        $materia = Materia::findOrFail($id);
+        $materia->delete();
+        return redirect()->route('materias.index')->with('success', 'eliminado correctamente');
+    }
+}
