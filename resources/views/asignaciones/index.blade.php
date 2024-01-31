@@ -492,33 +492,25 @@
                                             <th>Capacidad</th>
                                             <th>Días</th>
                                             <th>Cantidad de días</th>
-                                            <th>Confirmar</th>
-                                            <th>Action</th>
+                                            <th>Usuario</th>
+                                            <th>Fecha</th>
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($historials as $historial)
                                             <tr>
-                                                <td>{{ $historial->id }}</td>
-                                                <!-- Acceder a las propiedades relacionadas -->
-                                                <td>
-                                                    {{ optional(optional(optional($historial->asignacionAula)->asignacionPrevia)->materia)->nombre }}
-                                                </td>
-                                                {{-- <td>{{ optional(optional($historial->asignacionAula)->asignacionPrevia->docente)->nombre }}</td>
-                                                <td>{{ optional(optional($historial->asignacionAula)->asignacionPrevia->turno)->nombre }}</td>
-                                                <td>{{ optional(optional($historial->asignacionAula)->aula)->nombre }}</td>
-                                                <td>{{ optional(optional($historial->asignacionAula)->aula)->capacidad }}</td> --}}
-                                                <!-- Mostrar días -->
-                                                {{-- <td>
-                                                    @foreach (optional($historial->asignacionAula)->dias as $dia)
-                                                        {{ $dia->dia }},
-                                                    @endforeach
-                                                </td> --}}
-                                                <!-- Otras columnas según sea necesario -->
-                                                <td>{{ $historial->cantidad_dias }}</td>
-                                                <td>
-                                                    <!-- Confirmar y otras acciones según sea necesario -->
-                                                </td>
+                                                <td>{{$historial->id}}</td>
+                                               <td>{{$historial->materia}}</td>
+                                               <td>{{$historial->docente}}</td>
+                                               <td>{{$historial->turno}}</td>
+                                               <td>{{$historial->aula}}</td>
+                                               <td>{{$historial->capacidad}}</td>
+                                               <td>{{$historial->dias}}</td>
+                                               <td>{{$historial->cantidad_dias}}</td>
+                                               <td>{{$historial->user->name}}</td>
+                                               <td>{{$historial->fecha}}</td>
+                                               
                                             </tr>
                                         @endforeach
                                     </tbody>
